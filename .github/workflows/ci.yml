@@ -11,8 +11,6 @@ on:
       - fix/**
       - pr/**
 
-
-
 jobs:
   posix:
     strategy:
@@ -311,7 +309,7 @@ jobs:
             cxxstd: "03,11,14,17,2a"
           - name: "TOOLSET=clang COMPILER=clang++-libc++ CXXSTD= Job 23"
             buildtype: "boost"
-            packages: "libc++-dev"
+            packages: "libc++-dev clang"
             packages_to_remove: ""
             os: "ubuntu-16.04"
             container: "ubuntu:14.04"
