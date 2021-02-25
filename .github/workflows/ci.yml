@@ -309,17 +309,16 @@ jobs:
             cxxstd: "03,11,14,17,2a"
           - name: "TOOLSET=clang COMPILER=clang++-libc++ CXXSTD= Job 23"
             buildtype: "boost"
-            packages: "libc++-dev clang"
-            packages_to_remove: ""
+            packages: " libc++-9-dev libc++abi-9-dev"
+            packages_to_remove: "libc++-dev libc++abi-dev"
             os: "ubuntu-16.04"
-            container: "ubuntu:14.04"
             cxx: "clang++-libc++"
             sources: ""
-            llvm_os: ""
-            llvm_ver: ""
+            llvm_os: "xenial"
+            llvm_ver: "9"
             toolset: "clang"
             compiler: "clang++-libc++"
-            cxxstd: "03,11"
+            cxxstd: "03,11,14,1z"
 
     runs-on: ${{ matrix.os }}
     container: ${{ matrix.container }}
@@ -463,6 +462,7 @@ jobs:
         run: |
           echo '==================================> SETUP'
           set -e
+          sudo mv /Library/Developer/CommandLineTools /Library/Developer/CommandLineTools.bck
           echo '==================================> PACKAGES'
           echo '==================================> INSTALL AND COMPILE'
           set -e
